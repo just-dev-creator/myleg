@@ -1,0 +1,23 @@
+#select {
+  margin-left: 1%;
+}
+#submit {
+  margin-left: 0.75cm;
+}
+
+mat-progress-bar {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile view */
+@media only screen and (max-width: 768px) {
+  #select {
+    margin-left: auto;
+  }
+  #submit {
+    margin-top: 0.25cm;
+    margin-left: 7.5%;
+  }
+}

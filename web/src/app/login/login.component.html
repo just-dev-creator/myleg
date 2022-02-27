@@ -1,0 +1,19 @@
+<div *ngIf="!cookies.check('login')">
+  <form>
+    <mat-form-field style="width: 7.5cm">
+      <mat-label>E-Mail</mat-label>
+      <input matInput type="email" name="mail" [(ngModel)]="email">
+    </mat-form-field>
+    <mat-form-field style="margin-left: 0.75cm; width: 7.5cm">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="password" [(ngModel)]="password">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit" (click)="login()">Log in</button>
+    <button style="margin-left: 0.5cm" mat-flat-button color="accent" type="button" (click)="register()">Register</button>
+  </form>
+</div>
+<div *ngIf="cookies.check('login')">
+  <app-account></app-account>
+  <button mat-raised-button color="warn" type="button" (click)="logout()">Log out</button>
+</div>

@@ -1,0 +1,32 @@
+<mat-card *ngIf="constitution" style="margin-bottom: 0.5cm">
+  <div>
+    <p class="field" style="display: inline">Stunde(n): </p><p class="value">{{constitution.hour}}</p>
+  </div>
+  <div *ngIf="constitution.cancelled">
+    <p class="field" style="display: inline">Ausfall </p><p class="value">ja</p>
+  </div>
+  <div>
+    <p class="field" style="display: inline">Lehrer: </p><p class="value">{{constitution.teacher_old}}</p>
+  </div>
+  <div *ngIf="!constitution.cancelled && constitution.teacher_old !== constitution.teacher_new">
+    <p class="field" style="display: inline">Vertreter: </p><p class="value">{{constitution.teacher_new}}</p>
+  </div>
+  <div>
+    <p class="field" style="display: inline">Planmäßiges Fach: </p><p class="value">{{constitution.topic_old}}</p>
+  </div>
+  <div *ngIf="!constitution.cancelled && constitution.topic_new !== constitution.topic_old">
+    <p class="field" style="display: inline">Vertretenes Fach: </p><p class="value">{{constitution.topic_new}}</p>
+  </div>
+  <div>
+    <p class="field" style="display: inline">Planmäßiger Raum: </p><p class="value">{{constitution.room_old}}</p>
+  </div>
+  <div *ngIf="!constitution.cancelled && constitution.room_old !== constitution.room_new">
+    <p class="field" style="display: inline">Neuer Raum: </p><p class="value">{{constitution.room_new}}</p>
+  </div>
+  <div *ngIf="constitution.moved_from !== ''">
+    <p class="field" style="display: inline">Verlagert von: </p><p class="value">{{constitution.moved_from}}</p>
+  </div>
+  <div>
+    <p class="field" style="display: inline">Weitere Informationen: </p><p class="value">{{constitution.info}}</p>
+  </div>
+</mat-card>

@@ -1,0 +1,17 @@
+.field {
+  font-weight: bold;
+}
+.value {
+  display: inline;
+}
+
+mat-card {
+  width: 90%;
+}
+
+/* Mobile view */
+@media only screen and (max-width: 768px) {
+  mat-card {
+    width: 80%;
+  }
+}

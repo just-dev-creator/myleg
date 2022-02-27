@@ -1,0 +1,13 @@
+GET http://localhost:3000/api/getgroup/?group=9a&date=11-02-2022
+
+###
+GET http://localhost:3000/api/getgroup/?group=6b&date=14-02-2022
+
+###
+GET http://localhost:3000/api/getgroup/?group=6b&date=14-02-2022
+
+###
+GET http://localhost:3000/api/getgroup/?group=9a&date=11-01-2022
+
+###
+GET https://leg-substitution-plan.vercel.app/api/getgroup/?group=9a&date=11-02-2022

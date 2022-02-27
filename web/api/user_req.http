@@ -1,0 +1,22 @@
+PUT http://localhost:3000/api/user
+Content-Type: application/json
+
+{
+  "email": "test@test.de",
+  "password": "123456789"
+}
+
+### groups.ts
+POST http://localhost:3000/api/groups
+Content-Type: application/json
+
+{
+  "token": "",
+  "group": "9b"
+}
+
+###
+PATCH http://localhost:3000/api/user
+Content-Type: application/json
+
+{}

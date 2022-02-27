@@ -1,0 +1,21 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <mat-form-field>
+    <mat-label>Group</mat-label>
+    <input matInput [ngModel]="group" name="group" type="text" required ngModel>
+  </mat-form-field>
+  <mat-form-field id="select">
+    <mat-label>Select</mat-label>
+    <mat-select name="date" required ngModel>
+      <mat-option value="now">Heutiger Vertretungsplan</mat-option>
+      <mat-option value="next">Vertretungsplan des nächsten Werktages</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button id="submit" mat-raised-button color="primary" [disabled]="loading" type="submit">
+    Suche
+  </button>
+</form>
+<br>
+<mat-progress-spinner mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
+<div style="overflow: auto; height: border-box">
+  <app-substitution *ngFor="let result of results | async" [constitution]="result"></app-substitution>
+</div>

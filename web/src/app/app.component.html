@@ -1,0 +1,29 @@
+<mat-sidenav-container style="height: 100%">
+  <mat-sidenav mode="side" opened>
+    <div style="margin-top: 1cm" *ngIf="cookies.check('login')">
+      <a routerLink="/">
+        <button class="nav-content" mat-fab color="primary" aria-label="Home button" *ngIf="router.url === '/'">
+          <mat-icon class="nav-content">table_chart</mat-icon>
+        </button>
+        <button class="nav-content" mat-fab aria-label="Home button" *ngIf="router.url !== '/'">
+          <mat-icon class="nav-content">table_chart</mat-icon>
+        </button>
+      </a>
+    </div>
+    <div style="margin-top: 1cm">
+      <a routerLink="/login">
+        <button class="nav-content" color="primary" mat-fab aria-label="Account button" *ngIf="router.url === '/login'">
+          <mat-icon class="nav-content">account_circle</mat-icon>
+        </button>
+        <button class="nav-content" mat-fab aria-label="Account button" *ngIf="router.url !== '/login'">
+          <mat-icon class="nav-content">account_circle</mat-icon>
+        </button>
+      </a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="margin-left: 1cm; margin-top: 0.5cm">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

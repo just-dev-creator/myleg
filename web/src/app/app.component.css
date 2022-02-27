@@ -1,0 +1,15 @@
+.nav-content {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+mat-sidenav {
+  width: 100px;
+}
+
+/* Mobile view */
+@media only screen and (max-width: 768px){
+  mat-sidenav {
+    width: 1.75cm;
+  }
+}
