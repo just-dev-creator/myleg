@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --serve-path /",
+    "clean": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "vercel-dev": "vercel dev"
+    "vercel-dev": "vercel dev",
+    "build": "ng build --output-path dist"
   },
   "private": true,
   "dependencies": {
