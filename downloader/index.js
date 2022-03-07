@@ -11,21 +11,26 @@ const {getMessaging} = require("firebase-admin/messaging");
 (async () => {
     // Initialize .env file
     require('dotenv').config();
-
     // Connect to dsbmobile "api"
     const dsb = new dsbmobile(process.env.DSBMOBILE_ID, process.env.DSBMOBILE_PASSWORD);
     // Get timetables from dsb
     const timetables = dsbmobile.findMethodInData('timetable', await dsb.fetch());
+    console.log(dsbmobile.findMethodInData('timetable', await dsb.fetch()))
     // Get plans for next day
     const first_plan = await download(timetables, 'Lehrer Heute');
     // Get plans for day after next
     const second_plan = await download(timetables, 'Lehrer Morgen');
+    // Get ABIT info
+    const abit = await download(timetables, 'Spots');
 
     // Connect to mongodb database
     await mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
     // Save constitutions from plans to database
     await save(new jsdom.JSDOM(first_plan).window.document);
     await save(new jsdom.JSDOM(second_plan).window.document);
+
+    // Save ABIT
+    console.log(abit)
 
     // Disconnect database
     await mongoose.disconnect();
@@ -44,14 +49,14 @@ async function save(document) {
     const items_even = document.getElementsByClassName('list even');
     for (let i = 0; i < items_even.length; i++) {
         const details = items_even[i].getElementsByTagName('td');
-        await process(details, date);
+        await process_table(details, date);
     }
 
     // Get odd entries and process them
     const items_odd = document.getElementsByClassName('list odd');
     for (let i = 0; i < items_odd.length; i++) {
         const details = items_odd[i].getElementsByTagName('td');
-        await process(details, date);
+        await process_table(details, date);
     }
 }
 
@@ -79,7 +84,7 @@ async function download(timetables, title) {
     return response.data;
 }
 
-async function process(details, date) {
+async function process_table(details, date) {
     // Create document
     const new_const = new Constitution({
         id: Number.parseInt(details[0].textContent),
@@ -197,4 +202,8 @@ async function sendChangeNotification(group, constitution) {
             })
         }
     }
+}
+
+async function save_ABIT(document) {
+
 }
