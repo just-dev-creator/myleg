@@ -15,22 +15,21 @@ const {getMessaging} = require("firebase-admin/messaging");
     const dsb = new dsbmobile(process.env.DSBMOBILE_ID, process.env.DSBMOBILE_PASSWORD);
     // Get timetables from dsb
     const timetables = dsbmobile.findMethodInData('timetable', await dsb.fetch());
-    console.log(dsbmobile.findMethodInData('timetable', await dsb.fetch()))
     // Get plans for next day
     const first_plan = await download(timetables, 'Lehrer Heute');
     // Get plans for day after next
     const second_plan = await download(timetables, 'Lehrer Morgen');
-    // Get ABIT info
-    const abit = await download(timetables, 'Spots');
 
     // Connect to mongodb database
     await mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
+    // Initialize messaging
+    const serviceAccount = require("./serviceAccountKey.json");
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount)
+    });
     // Save constitutions from plans to database
     await save(new jsdom.JSDOM(first_plan).window.document);
     await save(new jsdom.JSDOM(second_plan).window.document);
-
-    // Save ABIT
-    console.log(abit)
 
     // Disconnect database
     await mongoose.disconnect();
@@ -39,7 +38,7 @@ const {getMessaging} = require("firebase-admin/messaging");
 async function save(document) {
     // Get date string from plan
     let day = document.getElementsByClassName('mon_title')[0].textContent;
-    const date_str = day.match('[1-9]{1,2}\\.[1-9]{1,2}\\.2022')[0];
+    const date_str = day.match('[0-9]{1,2}\\.[0-9]{1,2}\\.2022')[0];
     const dateParts = date_str.split('.');
     // Get js date from string date
     let date = new Date(+dateParts[2], dateParts[1] -1, +dateParts[0]);
@@ -151,10 +150,6 @@ async function sendNewNotification(group, constitution) {
     });
 
     // Create messaging instance
-    const serviceAccount = require("./serviceAccountKey.json");
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
-    });
     const messaging = getMessaging();
 
     // Send message
@@ -168,7 +163,7 @@ async function sendNewNotification(group, constitution) {
                 }
             }
             await messaging.send(message).then((response) => {
-                logger.log('Sent message: ' + response);
+                logger.info('Sent message: ' + response);
             });
         }
     }
@@ -181,10 +176,6 @@ async function sendChangeNotification(group, constitution) {
     });
 
     // Create messaging instance
-    const serviceAccount = require("./serviceAccountKey.json");
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
-    });
     const messaging = getMessaging();
 
     // Send message
@@ -198,12 +189,8 @@ async function sendChangeNotification(group, constitution) {
                 }
             }
             await messaging.send(message).then((response) => {
-                logger.log('Sent message: ' + response);
+                logger.info('Sent message: ' + response);
             })
         }
     }
-}
-
-async function save_ABIT(document) {
-
 }
