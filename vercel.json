@@ -1,0 +1,21 @@
+{
+  "headers": [
+    {
+      "source": "/api/getgroup/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=30, stale-while-revalidate=899"
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "api/getgroup.ts": {
+      "includeFiles": "./api/**"
+    },
+    "api/user.ts": {
+      "includeFiles": "./node_modules/bcrypt/**"
+    }
+  }
+}
