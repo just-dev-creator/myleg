@@ -17,5 +17,5 @@
 <br>
 <mat-progress-spinner mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
 <div style="overflow: auto; height: border-box">
-  <app-substitution *ngFor="let result of results | async" [constitution]="result"></app-substitution>
+  <app-substitution *ngFor="let result of results" [constitution]="result"></app-substitution>
 </div>

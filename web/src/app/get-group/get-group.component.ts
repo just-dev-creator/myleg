@@ -19,9 +19,10 @@ export class GetGroupComponent implements OnInit {
     this.getDefaultGroup();
   }
 
-  results: Observable<Substitution[]> | undefined | null;
+  results: Substitution[] = [];
 
   async onSubmit(f: NgForm) {
+    let response: Observable<Substitution[]> | undefined | null;
     this.loading = true;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -29,17 +30,20 @@ export class GetGroupComponent implements OnInit {
     });
     if (f.value.date === 'next') {
       const date = getNextWeekday();
-      this.results = this.http.get<Substitution[]>(`/api/getgroup/?date=${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}&group=${f.value.group}
+      response = this.http.get<Substitution[]>(`/api/getgroup/?date=${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}&group=${f.value.group}
       `, {
         headers: headers
       });
     } else {
-      this.results = this.http.get<Substitution[]>(`/api/getgroup/?group=${f.value.group}`, {
+      response = this.http.get<Substitution[]>(`/api/getgroup/?group=${f.value.group}`, {
         headers: headers
       });
+      console.log('today')
     }
-    this.results.subscribe(
-      () => {},
+    response.subscribe(
+      (res) => {
+        this.results = res;
+      },
       () => {},
       () => {
         this.loading = false;
