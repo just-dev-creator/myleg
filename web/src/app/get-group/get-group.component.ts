@@ -24,6 +24,7 @@ export class GetGroupComponent implements OnInit {
   async onSubmit(f: NgForm) {
     let response: Observable<Substitution[]> | undefined | null;
     this.loading = true;
+    this.results = [];
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${this.auth.getToken()}`
@@ -38,7 +39,6 @@ export class GetGroupComponent implements OnInit {
       response = this.http.get<Substitution[]>(`/api/getgroup/?group=${f.value.group}`, {
         headers: headers
       });
-      console.log('today')
     }
     response.subscribe(
       (res) => {
