@@ -72,5 +72,8 @@ async function isUserVerified(user: any): Promise<boolean> {
     email: user.email
     }
   );
+  if (mongoUser === null || mongoUser.verified === null) {
+    return false;
+  }
   return mongoUser.verified;
 }
