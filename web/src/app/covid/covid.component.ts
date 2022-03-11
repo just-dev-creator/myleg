@@ -24,7 +24,7 @@ export class CovidComponent implements OnInit {
 
   group: string = '';
   loading: boolean = false;
-  isABIT: boolean | undefined = true;
+  isABIT: boolean | undefined;
 
   async onSubmit(f: NgForm) {
     this.getGroup(f.value.group);
