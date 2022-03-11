@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "vercel": "^24.0.0"
+  },
+  "scripts": {
+    "vercel-dev": "vercel dev",
+    "deploy": "vercel"
   }
 }
