@@ -2,7 +2,11 @@ const dsbmobile = require("dsbapi");
 const mongoose = require('mongoose');
 const Abit = require('./abit_model');
 const { createWorker } = require('tesseract.js');
-const {mongo} = require("mongoose");
+const {getMessaging} = require("firebase-admin/messaging");
+const admin = require("firebase-admin");
+const User = require('./user_model');
+
+
 (async () =>  {
     // Initialize .env file
     require('dotenv').config();
@@ -14,9 +18,7 @@ const {mongo} = require("mongoose");
         return data.title === 'Spots' && data.secondTitle === 'ABIT';
     })[0];
 
-    const worker = createWorker({
-        logger: m => undefined,
-    });
+    const worker = createWorker({});
     await worker.load();
     await worker.loadLanguage('deu')
     await worker.initialize('deu');
@@ -25,16 +27,13 @@ const {mongo} = require("mongoose");
 
 
     let groups = [];
-    text.match(/([5-9])|(1[0-3])( |,|\n|\0)/g).forEach((group) => {
+    text.match(/([5-9])|(1[0-3])([,\n])/g).forEach((group) => {
         groups.push(group.replace(',', '').replace('\n', ''));
-        return;
     });
     const date_str = text.match(/[0-9]{1,2}\.[0-9]{1,2}\.2022/)[0];
     const dateParts = date_str.split('.');
     let date = new Date(+dateParts[2], dateParts[1] -1, +dateParts[0]);
     date.setTime(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
-    console.log(date);
-    console.log(groups);
 
     // Connect to MongoDB
     await mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
@@ -46,6 +45,8 @@ const {mongo} = require("mongoose");
     // Store abit
     try {
         await document.save();
+        // Send notification
+        await sendNotification(groups);
     } catch (e) {
         const existing = await Abit.findOne({
             date: date
@@ -53,6 +54,36 @@ const {mongo} = require("mongoose");
         existing.groups = groups;
         await existing.save();
     }
-
     await mongoose.disconnect();
 })();
+
+async function sendNotification(groups) {
+    const serviceAccount = require("./serviceAccountKey.json");
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount)
+    });
+    const messaging = getMessaging();
+
+    for (let group of groups) {
+        const users = await User.find({
+            group: {
+                $regex: group + "."
+            },
+            messagingToken: {
+                $exists: true
+            }
+        });
+        for (let user of users) {
+            const message = {
+                "token":  user.messagingToken,
+                "notification": {
+                    "title": "Du bist (weiterhin) im ABIT-Programm",
+                    "body": "Dein Jahrgang befindet sich auch in der neu herausgegebenen Übersicht"
+                }
+            }
+            await messaging.send(message).then((response) => {
+                console.log('Sent message: ' + response);
+            })
+        }
+    }
+}
