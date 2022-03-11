@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {GetGroupComponent} from "./get-group/get-group.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuardService} from "./auth-guard.service";
+import {CovidComponent} from "./covid/covid.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'covid',
+    component: CovidComponent,
+    canActivate: [AuthGuardService]
   }
 ];
 

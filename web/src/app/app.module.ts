@@ -11,7 +11,6 @@ import * as firebase from "firebase/app"
 import {environment} from "../environments/environment";
 import { LoginComponent } from './login/login.component';
 import {CookieService} from "ngx-cookie-service";
-import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatButtonModule} from "@angular/material/button";
@@ -23,6 +22,7 @@ import { AccountComponent } from './account/account.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { CovidComponent } from './covid/covid.component';
 
 firebase.initializeApp(environment.firebase)
 
@@ -32,8 +32,8 @@ firebase.initializeApp(environment.firebase)
     GetGroupComponent,
     SubstitutionComponent,
     LoginComponent,
-    NavbarComponent,
     AccountComponent,
+    CovidComponent,
   ],
   imports: [
     BrowserModule,

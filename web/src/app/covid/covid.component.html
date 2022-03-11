@@ -1,0 +1,49 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <mat-form-field>
+    <mat-label>Jahrgangsstufe</mat-label>
+    <input matInput [ngModel]="group" name="group" type="text" required maxlength="2" ngModel>
+  </mat-form-field>
+  <button id="submit" mat-raised-button color="primary" [disabled]="loading" type="submit">
+    Suche
+  </button>
+</form>
+
+<div *ngIf="isABIT !== undefined">
+  <div *ngIf="isABIT">
+      <div style="display: flex; align-items: center">
+        <mat-icon style="font-size: 48px; width: 48px; height: 48px">fact_check</mat-icon>
+        <span style="font-size: 40px">
+          Dein Jahrgang nimmt am ABIT-Programm teil.
+        </span>
+      </div>
+    <p class="means">Das heißt: </p>
+    <ul>
+      <li>
+        Du musst dich jeden Tag testen, wenn du nicht dreifach geimpft bist.
+      </li>
+      <li>
+        Du musst dich jeden Tag testen, wenn du dreifach geimpft bist.
+      </li>
+      <li>
+        Du musst deinen Test analog, bspw. im Schulplaner, nachweisen.
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!isABIT">
+    <div style="display: flex; align-items: center">
+      <mat-icon style="font-size: 48px; width: 48px; height: 48px">highlight_off</mat-icon>
+      <span style="font-size: 40px">
+          Dein Jahrgang nimmt nicht am ABIT-Programm teil.
+        </span>
+    </div>
+    <p class="means">Das heißt: </p>
+    <ul>
+      <li>
+        Du musst dich jeden Tag testen, wenn du nicht dreifach geimpft bist.
+      </li>
+      <li>
+        Du musst deinen Test analog, bspw. im Schulplaner, nachweisen.
+      </li>
+    </ul>
+  </div>
+</div>
