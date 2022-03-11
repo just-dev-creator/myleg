@@ -172,7 +172,10 @@ async function sendNewNotification(group, constitution) {
 async function sendChangeNotification(group, constitution) {
     // Get all users with given group
     const users = await User.find({
-        group: group
+        group: group,
+        messagingToken: {
+            $exists: true
+        }
     });
 
     // Create messaging instance
