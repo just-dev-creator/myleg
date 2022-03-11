@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {JwtHelperService} from "@auth0/angular-jwt";
@@ -52,9 +52,9 @@ export class AuthService {
     );
   }
 
-  getGroup(): string | Observable<any> {
+  getGroup(): Observable<any> | undefined {
     if (!this.cookies.get('login')) {
-      return '';
+      return;
     }
     return this.http.get<any>('/api/groups?token=' + this.cookies.get('login'));
   }
@@ -101,6 +101,18 @@ export class AuthService {
     return this.http.post<any>('/api/messaging', {
       token: this.cookies.get('login'),
       messaging: token
+    });
+  }
+
+  getABIT(group: string): Observable<any> | undefined {
+    if (!this.cookies.get('login')) {
+      return;
+    }
+    return this.http.get<any>('/api/covid?group=' + group, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.cookies.get('login')}`
+      })
     });
   }
 }
