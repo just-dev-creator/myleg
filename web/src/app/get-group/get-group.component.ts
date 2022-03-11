@@ -60,7 +60,7 @@ export class GetGroupComponent implements OnInit {
         }
       })
     } else {
-      this.group = group;
+      this.group = '';
     }
   }
 
