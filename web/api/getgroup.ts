@@ -49,9 +49,8 @@ export default async function handler(request: VercelRequest, response: VercelRe
       group: {
         $all: [req_group.toString()]
       },
-      date: date,
-      $sort: {date: -1, hour: 1}
-    })
+      date: date
+    }).sort('hour').lean();
     response.status(200).send(result)
   } catch (e) {
     console.error(e);
