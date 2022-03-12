@@ -52,13 +52,6 @@ export class AuthService {
     );
   }
 
-  getGroup(): Observable<any> | undefined {
-    if (!this.cookies.get('login')) {
-      return;
-    }
-    return this.http.get<any>('/api/groups?token=' + this.cookies.get('login'));
-  }
-
   getUser(): any {
     if (!this.cookies.get('login')) {
       return null;
@@ -114,6 +107,10 @@ export class AuthService {
         Authorization: `Bearer ${this.cookies.get('login')}`
       })
     });
+  }
+
+  getGroupToken(): string | undefined {
+    return new JwtHelperService().decodeToken(this.getToken()).group;
   }
 }
 

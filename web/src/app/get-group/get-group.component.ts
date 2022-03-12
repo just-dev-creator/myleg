@@ -52,15 +52,9 @@ export class GetGroupComponent implements OnInit {
   }
 
   async getDefaultGroup() {
-    const group = this.auth.getGroup();
-    if (group instanceof Observable) {
-      group.subscribe((value) => {
-        if (value.status === 'success') {
-          this.group = value.group;
-        }
-      })
-    } else {
-      this.group = '';
+    const groupToken = this.auth.getGroupToken();
+    if (groupToken) {
+      this.group = groupToken;
     }
   }
 

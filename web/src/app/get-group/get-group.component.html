@@ -1,10 +1,10 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
   <mat-form-field>
-    <mat-label>Group</mat-label>
+    <mat-label>Klasse</mat-label>
     <input matInput [ngModel]="group" name="group" type="text" required ngModel>
   </mat-form-field>
   <mat-form-field id="select">
-    <mat-label>Select</mat-label>
+    <mat-label>Tag</mat-label>
     <mat-select name="date" required ngModel>
       <mat-option value="now">Heutiger Vertretungsplan</mat-option>
       <mat-option value="next">Vertretungsplan des nächsten Werktages</mat-option>

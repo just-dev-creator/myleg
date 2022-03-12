@@ -12,14 +12,14 @@ export class CovidComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.auth.getGroup()?.subscribe(
-      (response) => {
-        if (response.status === 'success') {
-          this.group = response.group.match(/[0-9]{1,2}/)[0];
-          this.getGroup(this.group);
-        }
-      }
-    )
+    const groupToken = this.auth.getGroupToken();
+    if (groupToken) {
+     const group = groupToken.match(/[0-9]{1,2}/);
+     if (group?.length === 1) {
+       this.group = group[0];
+       this.getGroup(this.group);
+     }
+    }
   }
 
   group: string = '';

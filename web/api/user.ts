@@ -119,7 +119,8 @@ export default async function handler(request: VercelRequest, response: VercelRe
       }
       const token = sign({
         id: (user as any)._id,
-        email: user.email
+        email: user.email,
+        group: user.group
       }, process.env.jwt_token, {
         expiresIn: '3d'
       });
