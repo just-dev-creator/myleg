@@ -12,10 +12,10 @@
     </div>
     <div style="margin-top: 1cm" *ngIf="cookies.check('login')">
       <a routerLink="/covid">
-        <button class="nav-content" color="primary" mat-fab aria-label="Account button" *ngIf="router.url === '/covid'">
+        <button class="nav-content" color="primary" mat-fab aria-label="ABIT button" *ngIf="router.url === '/covid'">
           <mat-icon class="nav-content">coronavirus</mat-icon>
         </button>
-        <button class="nav-content" mat-fab aria-label="Account button" *ngIf="router.url !== '/covid'">
+        <button class="nav-content" mat-fab aria-label="ABIT button" *ngIf="router.url !== '/covid'">
           <mat-icon class="nav-content">coronavirus</mat-icon>
         </button>
       </a>
@@ -27,6 +27,21 @@
         </button>
         <button class="nav-content" mat-fab aria-label="Account button" *ngIf="router.url !== '/login'">
           <mat-icon class="nav-content">account_circle</mat-icon>
+        </button>
+      </a>
+    </div>
+    <div style="margin-top: 1cm">
+      <a href="https://github.com/just-dev-creator/myleg/" target="_blank">
+        <button class="nav-content" mat-fab aria-label="GitHub button">
+          <mat-icon class="nav-content" svgIcon="github">
+          </mat-icon>
+        </button>
+      </a>
+    </div>
+    <div style="margin-top: 1cm">
+      <a href="https://justcoding.tech/legal/myleg.html">
+        <button class="nav-content" mat-fab aria-label="Imprint button">
+          <mat-icon class="nav-content">gavel</mat-icon>
         </button>
       </a>
     </div>
