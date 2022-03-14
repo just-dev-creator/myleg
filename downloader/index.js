@@ -44,19 +44,25 @@ async function save(document) {
     let date = new Date(+dateParts[2], dateParts[1] -1, +dateParts[0]);
     date.setTime(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
 
+    const substitutions = [];
+
     // Get even entries and process them
     const items_even = document.getElementsByClassName('list even');
     for (let i = 0; i < items_even.length; i++) {
         const details = items_even[i].getElementsByTagName('td');
-        await process_table(details, date);
+        substitutions.push(details);
     }
 
     // Get odd entries and process them
     const items_odd = document.getElementsByClassName('list odd');
     for (let i = 0; i < items_odd.length; i++) {
         const details = items_odd[i].getElementsByTagName('td');
-        await process_table(details, date);
+        substitutions.push(details);
     }
+    substitutions.forEach(value => {
+        process_table(value, date);
+    });
+    await delete_unused(substitutions, date);
 }
 
 function compare(first_doc, second_doc) {
@@ -81,6 +87,23 @@ async function download(timetables, title) {
     // Download plan
     const response = await axios.get(url);
     return response.data;
+}
+
+async function delete_unused(substitutions, date) {
+    const valid_ids = [];
+    substitutions.forEach(value => {
+        valid_ids.push(Number.parseInt(value[0].textContent))
+    });
+    const documents = await Constitution.find({
+        date: date
+    });
+    for (document of documents) {
+        console.log(document)
+        if (!valid_ids.includes(document.id)) {
+            logger.info("Substitution with the id " + document.id + " was in db but not on plan. Deleting...")
+            await document.remove();
+        }
+    }
 }
 
 async function process_table(details, date) {
