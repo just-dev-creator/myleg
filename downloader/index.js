@@ -111,7 +111,7 @@ async function process_table(details, date) {
     const new_const = new Constitution({
         id: Number.parseInt(details[0].textContent),
         hour: details[1].textContent,
-        group: details[2].textContent.split(', '),
+        group: details[2].textContent.replace('(', '').replace(')', '').split(', '),
         teacher_old: details[3].textContent,
         teacher_new: details[4].textContent,
         topic_old: details[5].textContent,
@@ -138,7 +138,7 @@ async function process_table(details, date) {
             }, {
                 id: Number.parseInt(details[0].textContent),
                 hour: details[1].textContent,
-                group: details[2].textContent.split(', '),
+                group: details[2].textContent.replace('(', '').replace(')', '').split(', '),
                 teacher_old: details[3].textContent,
                 teacher_new: details[4].textContent,
                 topic_old: details[5].textContent,
