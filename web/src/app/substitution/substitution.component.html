@@ -23,10 +23,10 @@
   <div *ngIf="!constitution.cancelled && constitution.room_old !== constitution.room_new">
     <p class="field" style="display: inline">Neuer Raum: </p><p class="value">{{constitution.room_new}}</p>
   </div>
-  <div *ngIf="constitution.moved_from !== ''">
+  <div *ngIf="constitution.moved_from !== ' '">
     <p class="field" style="display: inline">Verlagert von: </p><p class="value">{{constitution.moved_from}}</p>
   </div>
-  <div>
+  <div *ngIf="constitution.info !== ' '">
     <p class="field" style="display: inline">Weitere Informationen: </p><p class="value">{{constitution.info}}</p>
   </div>
 </mat-card>
