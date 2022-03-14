@@ -15,8 +15,9 @@
     <input name="group" matInput type="text" [ngModel]="group" ngModel>
   </mat-form-field>
   <br>
-  <button type="submit" color="primary" mat-flat-button>Speichern</button>
-  <button class="push" type="button" mat-flat-button *ngIf="pushNotificationsEnabled" (click)="togglePush()">
+  <button type="submit" color="primary" mat-flat-button style="margin-bottom: 5px">Speichern</button>
+  <br>
+  <button type="button" mat-flat-button *ngIf="pushNotificationsEnabled" (click)="togglePush()">
     Push-Nachrichten deaktivieren
   </button>
   <button class="push" type="button" mat-flat-button color="accent" *ngIf="!pushNotificationsEnabled" (click)="togglePush()">
