@@ -5,7 +5,7 @@ const { createWorker } = require('tesseract.js');
 const {getMessaging} = require("firebase-admin/messaging");
 const admin = require("firebase-admin");
 const User = require('./user_model');
-
+const logger = require('pino')();
 
 (async () =>  {
     // Initialize .env file
@@ -17,12 +17,14 @@ const User = require('./user_model');
     const url = timetables.data.filter((data) => {
         return data.title === 'Spots' && data.secondTitle === 'ABIT';
     })[0];
+    logger.info("Downloaded ABIT information.");
 
     const worker = createWorker({});
     await worker.load();
     await worker.loadLanguage('deu')
     await worker.initialize('deu');
     const { data: { text }} = await worker.recognize(url.url);
+    logger.info("Found text in image");
     await worker.terminate();
 
 
@@ -30,6 +32,7 @@ const User = require('./user_model');
     text.match(/([5-9])|(1[0-3])([,\n])/g).forEach((group) => {
         groups.push(group.replace(',', '').replace('\n', ''));
     });
+    logger.info("Found groups: " + groups)
     const date_str = text.match(/[0-9]{1,2}\.[0-9]{1,2}\.2022/)[0];
     const dateParts = date_str.split('.');
     let date = new Date(+dateParts[2], dateParts[1] -1, +dateParts[0]);
@@ -52,6 +55,11 @@ const User = require('./user_model');
             date: date
         });
         existing.groups = groups;
+        for (let group of groups) {
+            if (!existing.groups.includes(group)) {
+                await sendNotification([group]);
+            }
+        }
         await existing.save();
     }
     await mongoose.disconnect();
@@ -82,7 +90,7 @@ async function sendNotification(groups) {
                 }
             }
             await messaging.send(message).then((response) => {
-                console.log('Sent message: ' + response);
+                logger.info('Sent message: ' + response);
             })
         }
     }

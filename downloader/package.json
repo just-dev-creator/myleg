@@ -18,6 +18,7 @@
   },
   "scripts": {
     "dev": "node index.js | pino-pretty -c -l",
+    "abit-dev": "node abit.js | pino-pretty -c -l",
     "start": "node index.js"
   }
 }
