@@ -25,7 +25,7 @@ The logs are output via pino in JSON format to STDOUT.
 `./web/api`
 
 This is the backend of the Angular front end. It communicates directly with the MongoDB database and also takes care of secure authentication, management and creation of user accounts.
-#### Install && run
+#### Install & run
 These files can be used unchanged only by Vercel and its serverless functions infrastructure.
 It is relatively easy to modify the functions for your own and specialized use, but I do not plan to implement this myself in the short or medium term. I am very happy with Vercel's product, especially because of their extensive free services, and it saves me a lot of work and time. 
 
@@ -44,7 +44,7 @@ yarn
 ```shell
 yarn start 
 ```
-*with backend (via vercel cli)*
+*via vercel (with backend)*
 ```shell
 vercel dev
 ```
