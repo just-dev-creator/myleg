@@ -2,13 +2,13 @@
   "name": "downloader",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
   "dependencies": {
     "axios": "^0.26.0",
     "dotenv": "^16.0.0",
     "dsbapi": "^4.1.1",
     "firebase-admin": "^10.0.2",
     "jsdom": "^19.0.0",
+    "legacy-encoding": "^3.0.0",
     "mongoose": "^6.2.1",
     "pino": "^7.6.5",
     "tesseract.js": "^2.1.5"

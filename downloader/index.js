@@ -7,6 +7,7 @@ const logger = require('pino')();
 const admin = require('firebase-admin');
 const User = require('./user_model')
 const {getMessaging} = require("firebase-admin/messaging");
+const legacy = require('legacy-encoding');
 
 (async () => {
     // Initialize .env file
@@ -85,8 +86,14 @@ async function download(timetables, title) {
     const url = table.objects[0].url;
 
     // Download plan
-    const response = await axios.get(url);
-    return response.data;
+    // Encoding: windows-1252
+    const response = await axios.request({
+        method: 'GET',
+        url: url,
+        responseType: 'arraybuffer',
+        responseEncoding: 'binary'
+    });
+    return legacy.decode(response.data, 'windows-1252');
 }
 
 async function delete_unused(substitutions, date) {
@@ -98,7 +105,6 @@ async function delete_unused(substitutions, date) {
         date: date
     });
     for (document of documents) {
-        console.log(document)
         if (!valid_ids.includes(document.id)) {
             logger.info("Substitution with the id " + document.id + " was in db but not on plan. Deleting...")
             await document.remove();
@@ -123,7 +129,6 @@ async function process_table(details, date) {
         cancelled: details[11].textContent === 'x',
         date: date
     });
-
     // Get existing document, if there is any
     const found = await Constitution.findOne({
         id: Number.parseInt(details[0].textContent),

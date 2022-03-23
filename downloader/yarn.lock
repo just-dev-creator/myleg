@@ -975,6 +975,13 @@ iconv-lite@0.6.3:
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
+iconv-lite@^0.4.4:
+  version "0.4.24"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
+  integrity sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3"
+
 idb-keyval@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/idb-keyval/-/idb-keyval-3.2.0.tgz#cbbf354deb5684b6cdc84376294fc05932845bd6"
@@ -1047,6 +1054,56 @@ is-url@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/is-url/-/is-url-1.2.4.tgz#04a4df46d28c4cff3d73d01ff06abeb318a1aa52"
   integrity sha512-ITvGim8FhRiYe4IQ5uHSkj7pVaPDrCTkNd3yq3cV7iZAcJdHTUMPMEHcqSOy9xZ9qFenQCvi+2wjH9a1nXqHww==
+
+iso-8859-15@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-15/-/iso-8859-15-0.1.2.tgz#28d1a5cd2a7a39030597ddfb1cb899793842573b"
+  integrity sha1-KNGlzSp6OQMFl937HLiZeThCVzs=
+
+iso-8859-2@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-2/-/iso-8859-2-0.1.2.tgz#550b4c0f292e7ebc8733a76ffd2e69908c7becfe"
+  integrity sha1-VQtMDykufryHM6dv/S5pkIx77P4=
+
+iso-8859-3@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-3/-/iso-8859-3-0.1.2.tgz#3de4feb6bd5f66396523e6922c57d218a5c97764"
+  integrity sha1-PeT+tr1fZjllI+aSLFfSGKXJd2Q=
+
+iso-8859-4@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-4/-/iso-8859-4-0.1.2.tgz#6ccdc4fd446ad9fd2e0cf3174e7bbd1f585ac3e6"
+  integrity sha1-bM3E/URq2f0uDPMXTnu9H1haw+Y=
+
+iso-8859-5@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-5/-/iso-8859-5-0.1.2.tgz#a189088885e0b405d8801f6d6e42c3fe0c43bcab"
+  integrity sha1-oYkIiIXgtAXYgB9tbkLD/gxDvKs=
+
+iso-8859-6@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-6/-/iso-8859-6-0.1.2.tgz#610c040e5c5f0972730aa2f82b28e5e7874d5661"
+  integrity sha1-YQwEDlxfCXJzCqL4Kyjl54dNVmE=
+
+iso-8859-7@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-7/-/iso-8859-7-0.1.2.tgz#4e5afae27ef5e88e1d5e6ce2315b299260d7b999"
+  integrity sha1-Tlr64n716I4dXmziMVspkmDXuZk=
+
+iso-8859-8-i@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-8-i/-/iso-8859-8-i-0.1.2.tgz#700957e7b7c42ba8b546bb876db8759d00f2195c"
+  integrity sha1-cAlX57fEK6i1RruHbbh1nQDyGVw=
+
+iso-8859-8@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-8859-8/-/iso-8859-8-0.1.2.tgz#354bd97c0a6de3f9f2ed0d31efb38d42bfa0bce5"
+  integrity sha1-NUvZfApt4/ny7Q0x77ONQr+gvOU=
+
+jconv@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/jconv/-/jconv-0.1.5.tgz#c650edba4cc2ce6dd292bf3910b123433c4b47f5"
+  integrity sha1-xlDtukzCzm3Skr85ELEjQzxLR/U=
 
 jose@^2.0.5:
   version "2.0.5"
@@ -1182,6 +1239,41 @@ kareem@2.3.3:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.3.3.tgz#a4432d7965a5bb06fc2b4eeae71317344c9a756a"
   integrity sha512-uESCXM2KdtOQ8LOvKyTUXEeg0MkYp4wGglTIpGcYHvjJcS5sn2Wkfrfit8m4xSbaNDAw2KdI9elgkOxZbrFYbg==
 
+koi8-r@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/koi8-r/-/koi8-r-0.1.2.tgz#a5cd9ddc8555dcd600735b6890f2d3d86954e7e8"
+  integrity sha1-pc2d3IVV3NYAc1tokPLT2GlU5+g=
+
+legacy-encoding@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/legacy-encoding/-/legacy-encoding-3.0.0.tgz#a13bd39fd9176572e14536d315dfca8ea380d8e1"
+  integrity sha1-oTvTn9kXZXLhRTbTFd/KjqOA2OE=
+  dependencies:
+    iconv-lite "^0.4.4"
+    iso-8859-15 "^0.1.2"
+    iso-8859-2 "^0.1.2"
+    iso-8859-3 "^0.1.2"
+    iso-8859-4 "^0.1.2"
+    iso-8859-5 "^0.1.2"
+    iso-8859-6 "^0.1.2"
+    iso-8859-7 "^0.1.2"
+    iso-8859-8 "^0.1.2"
+    iso-8859-8-i "^0.1.2"
+    jconv "^0.1.5"
+    koi8-r "^0.1.2"
+    macintosh "^0.1.2"
+    windows-1250 "^0.1.2"
+    windows-1251 "^0.1.2"
+    windows-1252 "^0.1.2"
+    windows-1253 "^0.1.2"
+    windows-1254 "^0.1.2"
+    windows-1255 "^0.1.2"
+    windows-1256 "^0.1.2"
+    windows-1257 "^0.1.2"
+    windows-1258 "^0.1.2"
+    windows-874 "^0.1.2"
+    x-mac-cyrillic "^0.1.2"
+
 leven@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-2.1.0.tgz#c2e7a9f772094dee9d34202ae8acce4687875580"
@@ -1272,6 +1364,11 @@ lru-memoizer@^2.1.4:
   dependencies:
     lodash.clonedeep "^4.5.0"
     lru-cache "~4.0.0"
+
+macintosh@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/macintosh/-/macintosh-0.1.2.tgz#82ef4a5128f1aa51f623aa5545c24946076ac9bb"
+  integrity sha1-gu9KUSjxqlH2I6pVRcJJRgdqybs=
 
 make-dir@^3.0.0:
   version "3.1.0"
@@ -1629,7 +1726,7 @@ safe-stable-stringify@^2.1.0:
   resolved "https://registry.yarnpkg.com/safe-stable-stringify/-/safe-stable-stringify-2.3.1.tgz#ab67cbe1fe7d40603ca641c5e765cb942d04fc73"
   integrity sha512-kYBSfT+troD9cDA85VDnHZ1rpHC50O0g1e6WlGHVCz/g+JS+9WKLj+XwFYyR8UbrZN8ll9HUpDAAddY58MGisg==
 
-"safer-buffer@>= 2.1.2 < 3.0.0":
+"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
@@ -1955,6 +2052,56 @@ whatwg-url@^5.0.0:
     tr46 "~0.0.3"
     webidl-conversions "^3.0.0"
 
+windows-1250@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1250/-/windows-1250-0.1.2.tgz#c37b9a073e405bcf42081d36baaf2fde773b99cc"
+  integrity sha1-w3uaBz5AW89CCB02uq8v3nc7mcw=
+
+windows-1251@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1251/-/windows-1251-0.1.2.tgz#4881d8f9053d0eb7b5fa5d34f0f94d60de43c2d3"
+  integrity sha1-SIHY+QU9Dre1+l008PlNYN5DwtM=
+
+windows-1252@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1252/-/windows-1252-0.1.2.tgz#662b7531e75edd945c2dbcba2bf799c170b8c816"
+  integrity sha1-Zit1Mede3ZRcLby6K/eZwXC4yBY=
+
+windows-1253@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1253/-/windows-1253-0.1.2.tgz#cfa0225b7ddd66a8f4038dea6e938945730f9251"
+  integrity sha1-z6AiW33dZqj0A43qbpOJRXMPklE=
+
+windows-1254@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1254/-/windows-1254-0.1.2.tgz#ad77907c5ee4ec51afa64a45caa245ec2d538b83"
+  integrity sha1-rXeQfF7k7FGvpkpFyqJF7C1Ti4M=
+
+windows-1255@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1255/-/windows-1255-0.1.2.tgz#1d2082cab881755fa322bec42f3f626918cca521"
+  integrity sha1-HSCCyriBdV+jIr7ELz9iaRjMpSE=
+
+windows-1256@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1256/-/windows-1256-0.1.2.tgz#9b09574698a412741f4b356c2450a8ff92a90c92"
+  integrity sha1-mwlXRpikEnQfSzVsJFCo/5KpDJI=
+
+windows-1257@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1257/-/windows-1257-0.1.2.tgz#8b4c44eeb0e971bb7340fbf4f9e674e860cbb666"
+  integrity sha1-i0xE7rDpcbtzQPv0+eZ06GDLtmY=
+
+windows-1258@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-1258/-/windows-1258-0.1.2.tgz#30233deaabda11849424693338856b9552de560e"
+  integrity sha1-MCM96qvaEYSUJGkzOIVrlVLeVg4=
+
+windows-874@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/windows-874/-/windows-874-0.1.2.tgz#77223b3ed69b75de9886dcfa2bbdd523a7dca277"
+  integrity sha1-dyI7Ptabdd6Yhtz6K73VI6fconc=
+
 word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
@@ -1988,6 +2135,11 @@ ws@^8.2.3:
   version "8.5.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.5.0.tgz#bfb4be96600757fe5382de12c670dab984a1ed4f"
   integrity sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==
+
+x-mac-cyrillic@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/x-mac-cyrillic/-/x-mac-cyrillic-0.1.2.tgz#76930fc375754929b10a498e345137f94b747b3c"
+  integrity sha1-dpMPw3V1SSmxCkmONFE3+Ut0ezw=
 
 xdg-basedir@^4.0.0:
   version "4.0.0"
