@@ -3,9 +3,19 @@
     <div style="margin-top: 1cm" *ngIf="cookies.check('login')">
       <a routerLink="/">
         <button class="nav-content" mat-fab color="primary" aria-label="Home button" *ngIf="router.url === '/'">
-          <mat-icon class="nav-content">table_chart</mat-icon>
+          <mat-icon class="nav-content">home</mat-icon>
         </button>
         <button class="nav-content" mat-fab aria-label="Home button" *ngIf="router.url !== '/'">
+          <mat-icon class="nav-content">home</mat-icon>
+        </button>
+      </a>
+    </div>
+    <div style="margin-top: 1cm" *ngIf="cookies.check('login')">
+      <a routerLink="/plan">
+        <button class="nav-content" mat-fab color="primary" aria-label="Home button" *ngIf="router.url === '/plan'">
+          <mat-icon class="nav-content">table_chart</mat-icon>
+        </button>
+        <button class="nav-content" mat-fab aria-label="Home button" *ngIf="router.url !== '/plan'">
           <mat-icon class="nav-content">table_chart</mat-icon>
         </button>
       </a>
@@ -50,5 +60,10 @@
     <div style="margin-left: 1cm; margin-top: 0.5cm">
       <router-outlet></router-outlet>
     </div>
+    <footer style="margin-top: auto; position: fixed; width: 100%; left: 0; bottom: 0; text-align: center;">
+      <p>
+        Alle Angaben sind ohne Gewähr. Im Zweifel zählen immer die Daten, die über die Schulkanäle verteilt werden.
+      </p>
+    </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
