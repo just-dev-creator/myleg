@@ -23,6 +23,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CovidComponent } from './covid/covid.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 firebase.initializeApp(environment.firebase)
 
@@ -34,6 +35,7 @@ firebase.initializeApp(environment.firebase)
     LoginComponent,
     AccountComponent,
     CovidComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,9 @@
 <mat-card *ngIf="constitution" style="margin-bottom: 0.5cm">
+  <div *ngIf="showDate === 'true'">
+    <p class="field" style="display: inline">Datum: </p> <p class="value">
+    {{dateStr}}
+  </p>
+  </div>
   <div>
     <p class="field" style="display: inline">Stunde(n): </p><p class="value">{{constitution.hour}}</p>
   </div>

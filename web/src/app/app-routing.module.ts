@@ -4,10 +4,11 @@ import {GetGroupComponent} from "./get-group/get-group.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuardService} from "./auth-guard.service";
 import {CovidComponent} from "./covid/covid.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'plan',
     component: GetGroupComponent,
     canActivate: [AuthGuardService]
   },
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'covid',
     component: CovidComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: '',
+    component: DashboardComponent,
     canActivate: [AuthGuardService]
   }
 ];

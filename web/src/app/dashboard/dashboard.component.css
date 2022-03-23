@@ -1,0 +1,9 @@
+/* Split the screen in half */
+.split {
+  display: flex;
+}
+
+/* Control the left side */
+.side {
+  flex: 1;
+}

@@ -8,10 +8,26 @@ import {Substitution} from "../get-group/substitution";
 })
 export class SubstitutionComponent implements OnInit {
   @Input()
-  constitution: Substitution | null = null;
-  constructor() { }
+  constitution: Substitution | undefined;
+  @Input()
+  showDate: string = 'false';
+
+  date: Date = new Date();
+  dateStr: string = '';
+
+  constructor() {
+  }
+
 
   ngOnInit(): void {
+    if (this.constitution) {
+      this.date = new Date(this.constitution.date);
+      this.dateStr = this.date.toLocaleDateString("de-DE", {
+        weekday: "short",
+        month: "numeric",
+        day: "numeric"
+      })
+    }
   }
 
 }
