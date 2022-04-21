@@ -31,9 +31,7 @@ const legacy = require('legacy-encoding');
     // Save constitutions from plans to database
     await save(new jsdom.JSDOM(first_plan).window.document);
     await save(new jsdom.JSDOM(second_plan).window.document);
-
-    // Disconnect database
-    await mongoose.disconnect();
+    await mongoose.connection.close();
 })();
 
 async function save(document) {
