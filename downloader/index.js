@@ -25,13 +25,13 @@ const legacy = require('legacy-encoding');
     await mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
     // Initialize messaging
     const serviceAccount = require("./serviceAccountKey.json");
-    admin.initializeApp({
+    await admin.initializeApp({
         credential: admin.credential.cert(serviceAccount)
     });
     // Save constitutions from plans to database
     await save(new jsdom.JSDOM(first_plan).window.document);
     await save(new jsdom.JSDOM(second_plan).window.document);
-    await mongoose.connection.close();
+    await mongoose.disconnect();
 })();
 
 async function save(document) {
