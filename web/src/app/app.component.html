@@ -20,16 +20,17 @@
         </button>
       </a>
     </div>
-    <div style="margin-top: 1cm" *ngIf="cookies.check('login')">
-      <a routerLink="/covid">
-        <button class="nav-content" color="primary" mat-fab aria-label="ABIT button" *ngIf="router.url === '/covid'">
-          <mat-icon class="nav-content">coronavirus</mat-icon>
-        </button>
-        <button class="nav-content" mat-fab aria-label="ABIT button" *ngIf="router.url !== '/covid'">
-          <mat-icon class="nav-content">coronavirus</mat-icon>
-        </button>
-      </a>
-    </div>
+<!--    ABIT is currently not available because currently all covid tests are optional-->
+<!--    <div style="margin-top: 1cm" *ngIf="cookies.check('login')">-->
+<!--      <a routerLink="/covid">-->
+<!--        <button class="nav-content" color="primary" mat-fab aria-label="ABIT button" *ngIf="router.url === '/covid'">-->
+<!--          <mat-icon class="nav-content">coronavirus</mat-icon>-->
+<!--        </button>-->
+<!--        <button class="nav-content" mat-fab aria-label="ABIT button" *ngIf="router.url !== '/covid'">-->
+<!--          <mat-icon class="nav-content">coronavirus</mat-icon>-->
+<!--        </button>-->
+<!--      </a>-->
+<!--    </div>-->
     <div style="margin-top: 1cm">
       <a routerLink="/login">
         <button class="nav-content" color="primary" mat-fab aria-label="Account button" *ngIf="router.url === '/login'">
