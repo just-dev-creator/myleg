@@ -17,11 +17,8 @@
   <br>
   <button type="submit" color="primary" mat-flat-button style="margin-bottom: 5px">Speichern</button>
   <br>
-  <button type="button" mat-flat-button *ngIf="pushNotificationsEnabled" (click)="togglePush()">
-    Push-Nachrichten deaktivieren
-  </button>
-  <button class="push" type="button" mat-flat-button color="accent" *ngIf="!pushNotificationsEnabled" (click)="togglePush()">
-    Push-Nachrichten aktivieren
-  </button>
 </form>
 <br>
+
+<h1>Deine Benachrichtigungen</h1>
+<app-notifications></app-notifications>

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GetGroupComponent } from './get-group/get-group.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { SubstitutionComponent } from './substitution/substitution.component';
 import * as firebase from "firebase/app"
@@ -24,6 +24,8 @@ import {MatCardModule} from "@angular/material/card";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CovidComponent } from './covid/covid.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 firebase.initializeApp(environment.firebase)
 
@@ -36,23 +38,26 @@ firebase.initializeApp(environment.firebase)
     AccountComponent,
     CovidComponent,
     DashboardComponent,
+    NotificationsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatInputModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatSnackBarModule,
-    MatCardModule,
-    MatProgressSpinnerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatInputModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatSnackBarModule,
+        MatCardModule,
+        MatProgressSpinnerModule,
+        MatCheckboxModule,
+        ReactiveFormsModule
+    ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })

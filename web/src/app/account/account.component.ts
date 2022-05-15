@@ -55,35 +55,4 @@ export class AccountComponent implements OnInit {
       group: f.value.group
     });
   }
-
-  async togglePush() {
-    if (this.pushNotificationsEnabled) {
-      this.auth.storeMessagingToken(false).subscribe((response) => {
-        if (response.status === 'success') {
-          this.snackbar.open('Push-Nachrichten sind nun inaktiv', undefined, {
-            duration: 3000
-          });
-          this.pushNotificationsEnabled = false;
-        }
-      });
-    } else {
-      const messaging = getMessaging();
-      getToken(messaging, {
-        vapidKey: 'BM4073qyB7TMXnnDx8BxeYN_g-bobcLGZLnha1SaJ2tIsf2dy2cTG4l0hDGA40ahUBSG-54AOYDr4rn5HKqCUaA'
-      }).then((currentToken) => {
-        if (currentToken) {
-          this.pushNotificationsEnabled = true;
-          this.auth.storeMessagingToken(currentToken).subscribe((response) => {
-            if (response.status === 'success') {
-              this.snackbar.open('Push-Nachrichten sind nun aktiv', undefined, {
-                duration: 3000
-              })
-            }
-          })
-        } else {
-          this.pushNotificationsEnabled = false;
-        }
-      });
-    }
-  }
 }
