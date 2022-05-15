@@ -135,7 +135,7 @@ async function process_table(details, date) {
     if (found !== null) {
         if (!compare(found, new_const)) {
             // Modify found document if existent
-            logger.info('Constitution with the id ' + new_const.id + ' has changes. ');
+            logger.info('Substitution with the id ' + new_const.id + ' has changes. ');
             await Constitution.findOneAndReplace({
                 id: new_const.id
             }, {
@@ -161,7 +161,7 @@ async function process_table(details, date) {
     } else {
         // Save new document
         await new_const.save();
-        logger.info('Constitution with the id ' + new_const.id + ' is new. ');
+        logger.info('Substitution with the id ' + new_const.id + ' is new. ');
         for (let group of new_const.group) {
             // Send notification
             await sendNewNotification(group, new_const);
@@ -172,7 +172,11 @@ async function process_table(details, date) {
 async function sendNewNotification(group, constitution) {
     // Get all users with given group
     const users = await User.find({
-        group: group
+        group: group,
+        messagingToken: {
+            $exists: true
+        },
+        'messaging.substitutions' : true
     });
 
     // Create messaging instance
@@ -201,7 +205,8 @@ async function sendChangeNotification(group, constitution) {
         group: group,
         messagingToken: {
             $exists: true
-        }
+        },
+        'messaging.substitutions' : true
     });
 
     // Create messaging instance
