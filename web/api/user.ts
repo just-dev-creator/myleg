@@ -45,7 +45,8 @@ export default async function handler(request: VercelRequest, response: VercelRe
           await connect(process.env.mongodb_uri_account);
           await new UserModel({
             email: email,
-            password: hash.toString()
+            password: hash.toString(),
+            messaging: {}
           }).save();
           await disconnect();
           await sendVerificationMail(email, response);

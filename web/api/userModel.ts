@@ -5,6 +5,7 @@ export interface IUser {
   password: string,
   group: string | null,
   messagingToken: string | null,
+  messaging: Object,
   verified: boolean
 }
 
@@ -25,6 +26,10 @@ const userSchema = new Schema({
   messagingToken:  {
     required: false,
     type: String
+  },
+  messaging: {
+    required: true,
+    type: Object
   },
   verified: {
     type: Boolean,
