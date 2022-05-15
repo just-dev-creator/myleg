@@ -1,0 +1,40 @@
+<button type="button" mat-flat-button *ngIf="pushNotificationsEnabled" (click)="togglePush()">
+  Push-Nachrichten deaktivieren
+</button>
+<button class="push" type="button" mat-flat-button color="accent" *ngIf="!pushNotificationsEnabled" (click)="togglePush()">
+  Push-Nachrichten aktivieren
+</button>
+<section style="margin: 12px 0">
+  <p>Ich möchte Benachrichtigungen zu folgenden Themen erhalten: </p>
+  <div>
+    <ul>
+      <li>
+        <mat-checkbox [checked]="notificationState.substitutions"
+                      (change)="setNotification('substitutions', $event.checked)">
+          Vertretungen
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox [checked]="notificationState.cancellations"
+                      (change)="setNotification('cancellations', $event.checked)">
+          Schulausfälle
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox [checked]="notificationState.messages"
+                      (change)="setNotification('messages', $event.checked)">
+          Nachrichten
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox [checked]="notificationState.homework"
+                      (change)="setNotification('homework', $event.checked)">
+          Angefragte Hausaufgaben
+        </mat-checkbox>
+      </li>
+    </ul>
+  </div>
+  <p>
+    {{ notificationState | json }}
+  </p>
+</section>
