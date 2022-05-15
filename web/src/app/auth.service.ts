@@ -112,6 +112,41 @@ export class AuthService {
   getGroupToken(): string | undefined {
     return new JwtHelperService().decodeToken(this.getToken()).group;
   }
+
+  getNotifications(): Observable<any> | undefined {
+    if (!this.cookies.get('login')) {
+      return;
+    }
+    return this.http.get<any>('/api/messaging', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.cookies.get('login')}`
+      })
+    });
+  }
+
+  setNotifications(notifications: any) {
+    if (!this.cookies.get('login')) {
+      return;
+    }
+    return this.http.put<any>('/api/messaging', {
+      notifications: notifications
+    }, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.cookies.get('login')}`
+      })
+    }).subscribe(
+      () => {},
+      () => {},
+      () => {
+        this.snackbar.open("Benachrichtigungseinstellungen erfolgreich geändert", undefined, {
+          duration: 1500
+          }
+        )
+      }
+    );
+  }
 }
 
 export interface IUser {
