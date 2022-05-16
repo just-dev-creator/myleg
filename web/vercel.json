@@ -26,5 +26,11 @@
     "api/user.ts": {
       "includeFiles": "./node_modules/bcrypt/**"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/api/download/:path*",
+      "destination": "https://myufqeudzfakufgienma.supabase.co/storage/v1/object/sign/material/"
+    }
+  ]
 }

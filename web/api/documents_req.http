@@ -1,0 +1,2 @@
+GET http://localhost:3000/api/documents/?group=13&subject=Latein&file=0001.pdf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGQwZmIwMTM4MDVjNjZhYjU0ODMwZCIsImVtYWlsIjoidGVzdEB0ZXN0LmRlIiwiZ3JvdXAiOiIxMyIsImlhdCI6MTY1MjYxNjk5NCwiZXhwIjoxNjUyODc2MTk0fQ.JXlJibofagH6Q6d417tqxAhozzYVTcyElRYGC1EB6MQ
