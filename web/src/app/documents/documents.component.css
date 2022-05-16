@@ -1,0 +1,17 @@
+.file-input {
+  display: none;
+}
+
+.upload-btn {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+}
+
+.file-card {
+  background-color: #424242;
+}
+
+.file-card:hover {
+  background-color: #171717;
+}

@@ -1,0 +1,42 @@
+<div *ngIf="subject">
+  <h1> {{ subject }} </h1>
+  <button mat-raised-button color="accent" (click)="subject = undefined">Zurück zur Übersichtsseite</button>
+  <br>
+  <div>
+    <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+<!--    <div class="file-upload">-->
+<!--      {{ fileUpload.files?.item(0)?.name || "Lade eine Datei zu diesem Fach hoch" }}-->
+<!--      <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">-->
+<!--        <mat-icon>-->
+<!--          attach_file-->
+<!--        </mat-icon>-->
+<!--      </button>-->
+<!--    </div>-->
+  </div>
+  <div style="display: flex; flex-wrap: wrap">
+    <div *ngFor="let file of files" (click)="download(file.name)" style="margin: 1% auto auto;">
+      <mat-card style="max-width: max-content" class="file-card">
+        <mat-card-header>
+          <mat-card-title>{{file.name}}</mat-card-title>
+          <mat-card-subtitle>Zuletzt geändert: {{ getReadableDate(file.updated_at) }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+  <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<div *ngIf="!subject">
+  <h3>
+    Wähle ein Fach aus, um fortzufahren.
+  </h3>
+  <div *ngIf="subjects">
+    <div *ngFor="let sub of subjects" (click)="setSubject(sub.name)" style="margin-top: 0.8%">
+      <button mat-stroked-button>{{sub.name}}</button>
+    </div>
+  </div>
+  <div *ngIf="!subjects">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</div>

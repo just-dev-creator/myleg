@@ -26,6 +26,7 @@ import { CovidComponent } from './covid/covid.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { DocumentsComponent } from './documents/documents.component';
 
 firebase.initializeApp(environment.firebase)
 
@@ -39,6 +40,7 @@ firebase.initializeApp(environment.firebase)
     CovidComponent,
     DashboardComponent,
     NotificationsComponent,
+    DocumentsComponent,
   ],
     imports: [
         BrowserModule,
