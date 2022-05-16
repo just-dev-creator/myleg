@@ -32,6 +32,16 @@
 <!--      </a>-->
 <!--    </div>-->
     <div style="margin-top: 1cm">
+      <a routerLink="/docs">
+        <button class="nav-content" color="primary" mat-fab aria-label="Files button" *ngIf="router.url === '/docs'">
+          <mat-icon class="nav-content">folder</mat-icon>
+        </button>
+        <button class="nav-content" mat-fab aria-label="Files button" *ngIf="router.url !== '/docs'">
+          <mat-icon class="nav-content">folder</mat-icon>
+        </button>
+      </a>
+    </div>
+    <div style="margin-top: 1cm">
       <a routerLink="/login">
         <button class="nav-content" color="primary" mat-fab aria-label="Account button" *ngIf="router.url === '/login'">
           <mat-icon class="nav-content">account_circle</mat-icon>

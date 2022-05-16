@@ -5,6 +5,7 @@ import {LoginComponent} from "./login/login.component";
 import {AuthGuardService} from "./auth-guard.service";
 import {CovidComponent} from "./covid/covid.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {DocumentsComponent} from "./documents/documents.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: 'covid',
     component: CovidComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'docs',
+    component: DocumentsComponent,
     canActivate: [AuthGuardService]
   },
   {
