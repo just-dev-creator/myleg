@@ -31,6 +31,14 @@
     {
       "source": "/api/download/:path*",
       "destination": "https://myufqeudzfakufgienma.supabase.co/storage/v1/object/sign/material/"
+    },
+    {
+      "source": "/api/distribution/script.js",
+      "destination": "https://plausible.io/js/script.js"
+    },
+    {
+      "source": "/api/distribution/event",
+      "destination": "https://plausible.io/api/event"
     }
   ]
 }
